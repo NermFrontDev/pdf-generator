@@ -1,0 +1,117 @@
+.invoice-container {
+  max-width: 700px;
+  /* margin: auto; */
+  padding: 20px;
+  border: 1px solid #ddd;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.invoice-to {
+}
+
+.invoice-info h1 {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 0;
+}
+
+.invoice-info p {
+  margin: 5px 0;
+}
+
+.invoice-number {
+  /* width: 80px; */
+  padding: 5px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+input.form-control.ng-valid.ng-touched.ng-dirty {
+  border: none;
+  cursor: pointer;
+}
+
+input[type="text"], input[type="number"] {
+  /* width: 100%; */
+  padding: 5px;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+input[type="text"]::placeholder, input[type="number"]::placeholder {
+  color: #888;
+}
+
+input:focus-visible {
+  border: none;
+  outline: none;
+}
+
+.data-input {
+  background: none !important;
+}
+
+tbody > .data-row {
+  background: #dfdfdf;
+  /* border-bottom: 1px solid #d7d7d7; */
+}
+
+.table>:not(caption)>*>* {
+  background: none !important;
+  border: none !important;
+}
+
+.totals {
+  text-align: right;
+}
+
+.totals p {
+  margin: 5px 0;
+}
+
+.total {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  font-size: 1.2em;
+}
+
+.thanks {
+  margin-top: 20px;
+  text-align: center;
+  font-style: italic;
+}
+
+.terms {
+  font-size: 0.9em;
+}
+
+.signature {
+  text-align: center;
+}
+
+#file-name {
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  color: #d1d1d1;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  padding: 10px 0;
+  font-size: 0.9em;
+}

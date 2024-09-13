@@ -1,0 +1,100 @@
+<div class="invoice-container d-flex flex-column align-items-stretch justify-content-center gap-3" id="invoice">
+  <div class="header">
+    <div class="invoice-to d-flex flex-column align-items-start gap-2">
+      <p class="m-0 p-0"><strong>Invoice to:</strong></p>
+      <p class="m-0 p-0">
+        <input type="text" class="form-control text-start ms-0 ps-0" placeholder="Enter a name">
+      </p>
+      <!-- <p class="m-0 p-0">Ptr. Bonnabel</p> -->
+      <p class="m-0 p-0">721 East Graybill Drive, Tucson, Arizona</p>
+      <p class="m-0 p-0">C.P. 85719</p>
+    </div>
+    <div class="invoice-info">
+      <h1>INVOICE</h1>
+      <div class="d-flex align-items-center justify-content-between">
+        <p class="m-0 p-0"><strong>Invoice #</strong></p>
+        <input type="number" class="invoice-number text-end" placeholder="00001" maxlength="5">
+      </div>
+      <div class="d-flex align-items-center justify-content-between">
+        <p><strong>Date</strong></p>
+        <form class="row row-cols-sm-auto">
+          <div class="col-12">
+            <div class="input-group">
+              <input (click)="d2.toggle()" class="form-control text-end" placeholder="dd/mm/yyyy" name="d2" #c2="ngModel" [(ngModel)]="model2" ngbDatepicker
+                #d2="ngbDatepicker" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <table class="table">
+    <thead class="d-flex align-items-center justify-content-center">
+      <tr class="text-center d-flex align-items-center justify-content-between col-12">
+        <th class="col-1">#</th>
+        <th class="col-5">Item Description</th>
+        <th class="col-1">Qty.</th>
+        <th class="col-1">Hours</th>
+        <th class="col-1">Price</th>
+        <th class="col-1">Total</th>
+      </tr>
+    </thead>
+    <tbody class="d-flex flex-column align-items-center justify-content-center col-12">
+      <tr *ngFor="let item of items; let i = index" class="data-row d-flex align-items-end justify-content-between col-12 text-center">
+        <td class="col-1">{{ i + 1 }}</td>
+        <td class="col-5"><input class="data-input form-control text-start" type="text" [(ngModel)]="item.description" placeholder="Type your item description"></td>
+        <td class="col-1"><input class="data-input form-control text-center" type="number" [(ngModel)]="item.qty" (ngModelChange)="updateTotal(i)" placeholder="#"></td>
+        <td class="col-1"><input class="data-input form-control text-center" type="number" [(ngModel)]="item.hours" (ngModelChange)="updateTotal(i)" placeholder="#"></td>
+        <td class="col-1">{{ priceHour | currency }}</td>
+        <td class="col-1">{{ item.total | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="d-flex flex-row align-items-start justify-content-between">
+    <div class="col-5 mt-2">
+      <p class="thanks m-0 text-start">Thank you for your preference</p>
+    </div>
+
+    <div class="totals col-4">
+      <p><strong>Sub Total:</strong> {{ subTotal | currency }}</p>
+      <p><strong>Tax:</strong> 0.00%</p>
+      <p class="total"><strong>Total:</strong> {{ subTotal | currency }}</p>
+    </div>
+  </div>
+
+  <div class="d-flex flex-row align-items-center justify-content-between mt-2">
+    <div class="terms col-5">
+      <p class="m-0"><strong>Terms & Conditions</strong></p>
+      <p class="m-0">According to the salary of the digital market, the standard price charged is 20 dollars per hour. Subject to modifications by the client.</p>
+    </div>
+
+    <div class="signature">
+      <textarea id="file-name" rows="2" cols="30" readonly
+      [class.d-none]="previewImage" (click)="triggerFileInput()">{{ fileName }}</textarea>
+
+      <input type="file" id="file-input" accept="image/*" style="display: none;" (change)="onFileSelected($event)" />
+
+      <div id="preview">
+        <img *ngIf="previewImage" [src]="previewImage" [style.max-width.px]="250" [style.max-height.px]="250">
+      </div>
+      <p class="m-0">_____________________________</p>
+      <p class="m-0">Authorised Sign</p>
+    </div>
+  </div>
+
+  <div class="my-5">
+    <div class="footer py-3">
+      <p class="m-0"><strong>Phone | {{ phone }}</strong></p>
+      <p class="m-0"><strong>Email | {{ email }}</strong></p>
+    </div>
+  </div>
+</div>
+
+<div class="container d-flex
+align-items-center justify-content-center mt-4">
+  <div class="row col-5">
+    <button class="btn btn-success" (click)="exportPDF()">Export to PDF</button>
+  </div>
+</div>
