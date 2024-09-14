@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:docs": "ng build --base-href /pdf-generator/docs/",
+    "build:docs": "ng build --base-href /docs/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
