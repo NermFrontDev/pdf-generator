@@ -1,5 +1,5 @@
 .invoice-container {
-  max-width: 700px;
+  max-width: 820px;
   /* margin: auto; */
   padding: 20px;
   border: 1px solid #ddd;
@@ -21,6 +21,10 @@
   color: #fff;
   padding: 10px 20px;
   margin: 0;
+}
+
+.address-input {
+  width: 350px;
 }
 
 .invoice-info p {
